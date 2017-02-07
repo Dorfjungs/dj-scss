@@ -1,0 +1,110 @@
+$default-transition-property: all !default;
+$default-transition-duration: 1s !default;
+$default-transition-function: null !default;
+$default-transition-delay: null !default;
+$transitionable-prefixed-values: transform, transform-origin !default;
+
+@function set-arglist-default($arglist, $default) {
+    $default-index: index($arglist, default);
+
+    @if $default-index {
+        $arglist: set-nth($arglist, $default-index, $default);
+    }
+
+    @return if(length($arglist) > 0, $arglist, $default);
+}
+
+@mixin prefix-property($property) {
+
+}
+
+@mixin box-sizing($value) {
+    box-sizing: $value;
+    -webkit-box-sizing: $value;
+}
+
+@mixin display-flex {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+}
+
+@mixin flex-direction($value) {
+    flex-direction: $value;
+    -webkit-flex-direction: $value;
+    -ms-flex-direction: $value;
+}
+
+@mixin align-items($value) {
+    align-items: $value;
+    -webkit-align-items: $value;
+    -ms-align-items: $value;
+}
+
+@mixin justify-content($value) {
+    justify-content: $value;
+    -webkit-justify-content: $value;
+    -ms-justify-content: $value;
+}
+
+@mixin perspective($value) {
+    perspective: $value;
+    -webkit-perspective: $value;
+}
+
+@mixin backface-visibility($value) {
+    backface-visibility: $value;
+    -webkit-backface-visibility: $value;
+}
+
+@mixin transform($value) {
+    transform: $value;
+    -webkit-transform: $value;
+}
+
+@mixin transform-origin($x, $y) {
+    transform-origin: $x $y;
+    -webkit-transform-origin: $x $y;
+}
+
+@mixin background-size($value) {
+    background-size: $value;
+    -webkit-background-size: $value;
+}
+
+@mixin box-shadow($value) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+}
+
+@mixin text-shadow($value) {
+    text-shadow: $value;
+    -webkit-text-shadow: $value;
+}
+
+@mixin appearance($value) {
+    appearance: $value;
+    -moz-appearance: $value;
+    -webkit-appearance: $value;
+}
+
+@mixin transition($transitions...) {
+    $default: (compact($default-transition-property $default-transition-duration $default-transition-function $default-transition-delay),);
+    $transitions: if(length($transitions) == 1 and type-of(nth($transitions, 1)) == list and list-separator(nth($transitions, 1)) == comma, nth($transitions, 1), $transitions);
+    $transitions: set-arglist-default($transitions, $default);
+
+    transition: $transitions;
+    -webkit-transition: $transitions;
+}
+
+@mixin transition-delay($delays...) {
+    $delays: set-arglist-default($delays, $default-transition-delay);
+
+    transition-delay: $delays;
+    -webkit-transition-delay: $delays;
+}
+
+@mixin user-select($value) {
+    user-select: $value;
+    -webkit-user-select: $value;
+}
