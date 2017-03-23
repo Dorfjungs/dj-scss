@@ -110,3 +110,15 @@ $transitionable-prefixed-values: transform, transform-origin !default;
     user-select: $value;
     -webkit-user-select: $value;
 }
+
+@mixin keyframes($name) {
+    @keyframes #{$name} { @content; }
+    @-webkit-keyframes #{$name} { @content; }
+    @-moz-keyframes #{$name} { @content; }
+    @-ms-keyframes #{$name} { @content; }
+}
+
+@mixin animation($values) {
+    animation: $values;
+    -webkit-animation: $values;
+}
