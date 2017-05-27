@@ -49,6 +49,12 @@ $transitionable-prefixed-values: transform, transform-origin !default;
     -ms-align-items: $value;
 }
 
+@mixin align-self($value) {
+    align-self: $value;
+    -webkit-align-self: $value;
+    -ms-align-self: $value;
+}
+
 @mixin justify-content($value) {
     justify-content: $value;
     -webkit-justify-content: $value;
