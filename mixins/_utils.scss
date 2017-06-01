@@ -16,3 +16,13 @@
 	    height: 0px;
 	}
 }
+
+@mixin placeholder {
+	$prefixes: "::-webkit-input-", "::-moz-", ":-ms-input-", ":-moz-";
+
+	@each $prefix in $prefixes {
+		&#{$prefix}placeholder {
+			@content
+		}
+	}
+}

@@ -25,6 +25,24 @@ $transitionable-prefixed-values: transform, transform-origin !default;
     display: -webkit-flex;
 }
 
+@mixin flex($value) {
+    flex: $value;
+    -webkit-flex: $value;
+    -ms-flex: $value;
+}
+
+@mixin flex-shrink($value) {
+    flex-shrink: $value;
+    -webkit-flex-shrink: $value;
+    -ms-flex-shrink: $value;
+}
+
+@mixin flex-grow($value) {
+    flex-grow: $value;
+    -webkit-flex-grow: $value;
+    -ms-flex-grow: $value;
+}
+
 @mixin display-inline-flex {
     display: inline-flex;
     display: -ms-inline-flex;
