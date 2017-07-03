@@ -17,6 +17,32 @@
 	}
 }
 
+@mixin responsive-width($min-width, $max-width: 0) {
+    @if ($max-width > 0) {
+        @media all and (min-width: $min-width) and (max-width: $max-width) {
+            @content;
+        }
+    }
+    @else {
+        @media all and (min-width: $min-width) {
+            @content;
+        }
+    }
+}
+
+@mixin responsive-height($min-height, $max-height: 0) {
+    @if ($max-height > 0) {
+        @media all and (min-width: $min-height) and (max-width: $max-height) {
+            @content;
+        }
+    }
+    @else {
+        @media all and (min-width: $min-height) {
+            @content;
+        }
+    }
+}
+
 @mixin placeholder {
 	$prefixes: "::-webkit-input-", "::-moz-", ":-ms-input-", ":-moz-";
 
