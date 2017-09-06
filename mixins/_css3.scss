@@ -1,3 +1,6 @@
+// Helper functions
+//----------------------------------------------------------------------
+
 $default-transition-property: all !default;
 $default-transition-duration: 1s !default;
 $default-transition-function: null !default;
@@ -14,70 +17,149 @@ $transitionable-prefixed-values: transform, transform-origin !default;
     @return if(length($arglist) > 0, $arglist, $default);
 }
 
-@mixin box-sizing($value) {
-    box-sizing: $value;
-    -webkit-box-sizing: $value;
-}
+// Flexbox mixins
+//----------------------------------------------------------------------
 
 @mixin display-flex {
     display: flex;
-    display: -ms-flex;
+    display: -ms-flexbox;
     display: -webkit-flex;
-}
-
-@mixin flex($value) {
-    flex: $value;
-    -webkit-flex: $value;
-    -ms-flex: $value;
-}
-
-@mixin flex-shrink($value) {
-    flex-shrink: $value;
-    -webkit-flex-shrink: $value;
-    -ms-flex-shrink: $value;
-}
-
-@mixin flex-grow($value) {
-    flex-grow: $value;
-    -webkit-flex-grow: $value;
-    -ms-flex-grow: $value;
 }
 
 @mixin display-inline-flex {
     display: inline-flex;
-    display: -ms-inline-flex;
+    display: -ms-inline-flexbox;
     display: -webkit-inline-flex;
 }
 
-@mixin flex-direction($value) {
-    flex-direction: $value;
+@mixin flex-direction($value: row) {
     -webkit-flex-direction: $value;
     -ms-flex-direction: $value;
+    flex-direction: $value;
 }
 
-@mixin flex-wrap($value) {
-    flex-wrap: $value;
+@mixin flex-wrap($value: nowrap) {
     -webkit-flex-wrap: $value;
-    -ms-flex-wrap: $value;
+
+    @if ($value == nowrap) {
+        -ms-flex-wrap: none;
+    }
+    @else {
+        -ms-flex-wrap: $value;
+    }
+
+    flex-wrap: $value;
 }
 
-@mixin align-items($value) {
-    align-items: $value;
+@mixin flex-flow($value: (row nowrap)) {
+    -webkit-flex-flow: $value;
+    -ms-flex-flow: $value;
+    flex-flow: $value;
+}
+
+@mixin order($value: 0) {
+    -webkit-box-ordinal-group: $value + 1;
+    -webkit-order: $value;
+    -ms-flex-order: $value;
+    order: $value;
+}
+
+@mixin flex($value: 1) {
+    -webkit-flex: $value;
+    -ms-flex: $value;
+    flex: $value;
+}
+
+@mixin flex-shrink($value: 0) {
+    -webkit-flex-shrink: $value;
+    -ms-flex-negative: $value;
+    flex-shrink: $value;
+}
+
+@mixin flex-grow($value: 0) {
+    -webkit-flex-grow: $value;
+    -ms-flex-positive: $value;
+    flex-grow: $value;
+}
+
+@mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+    -ms-flex-preferred-size: $value;
+    flex-basis: $value;
+}
+
+@mixin align-items($value: stretch) {
     -webkit-align-items: $value;
-    -ms-align-items: $value;
+
+    @if ($value == flex-start) {
+        -ms-flex-align: start;
+    }
+    @else if ($value == flex-end) {
+        -ms-flex-align: end;
+    }
+    @else {
+        -ms-flex-align: $value;
+    }
+
+    align-items: $value;
 }
 
-@mixin align-self($value) {
-    align-self: $value;
+@mixin align-self($value: auto) {
     -webkit-align-self: $value;
-    -ms-align-self: $value;
+
+    @if ($value == flex-start) {
+        -ms-flex-item-align: start;
+    }
+    @else if ($value == flex-end) {
+        -ms-flex-item-align: end;
+    }
+    @else {
+        -ms-flex-item-align: $value;
+    }
+
+    align-self: $value;
 }
 
-@mixin justify-content($value) {
-    justify-content: $value;
+@mixin justify-content($value: flex-start) {
     -webkit-justify-content: $value;
-    -ms-justify-content: $value;
+
+    @if ($value == flex-start) {
+        -ms-flex-pack: start;
+    }
+    @else if ($value == flex-end) {
+        -ms-flex-pack: end;
+    }
+    @else if ($value == space-between) {
+        -ms-flex-pack: justify;
+    }
+    @else if ($value == space-around) {
+        -ms-flex-pack: distribute;
+    }
+    @else {
+        -ms-flex-pack: $value;
+    }
+
+    justify-content: $value;
 }
+
+@mixin align-content($value: stretch) {
+    -webkit-align-content: $value;
+
+    @if ($value == flex-start) {
+        -ms-flex-line-pack: start;
+    }
+    @else if ($value == flex-end) {
+        -ms-flex-line-pack: end;
+    }
+    @else {
+        -ms-flex-line-pack: $value;
+    }
+
+    align-content: $value;
+}
+
+// Misc mixins
+//----------------------------------------------------------------------
 
 @mixin perspective($value) {
     perspective: $value;
@@ -138,6 +220,7 @@ $transitionable-prefixed-values: transform, transform-origin !default;
 
 @mixin user-select($value) {
     user-select: $value;
+    -ms-user-select: $value;
     -webkit-user-select: $value;
 }
 
@@ -151,4 +234,10 @@ $transitionable-prefixed-values: transform, transform-origin !default;
 @mixin animation($values) {
     animation: $values;
     -webkit-animation: $values;
+    -ms-animation: $values;
+}
+
+@mixin box-sizing($value) {
+    box-sizing: $value;
+    -webkit-box-sizing: $value;
 }
