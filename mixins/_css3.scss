@@ -26,10 +26,18 @@ $transitionable-prefixed-values: transform, transform-origin !default;
     display: -webkit-flex;
 }
 
+@mixin flexbox {
+    @include display-flex;
+}
+
 @mixin display-inline-flex {
     display: inline-flex;
     display: -ms-inline-flexbox;
     display: -webkit-inline-flex;
+}
+
+@mixin inline-flex {
+    @include display-inline-flex;
 }
 
 @mixin flex-direction($value: row) {
