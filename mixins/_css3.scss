@@ -72,10 +72,10 @@ $transitionable-prefixed-values: transform, transform-origin !default;
     order: $value;
 }
 
-@mixin flex($value: 1) {
-    -webkit-flex: $value;
-    -ms-flex: $value;
-    flex: $value;
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+    -webkit-flex: $fg $fs $fb;
+    -ms-flex: $fg $fs $fb;
+    flex: $fg $fs $fb;
 }
 
 @mixin flex-shrink($value: 0) {
