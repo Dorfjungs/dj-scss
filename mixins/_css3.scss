@@ -20,24 +20,24 @@ $transitionable-prefixed-values: transform, transform-origin !default;
 // Flexbox mixins
 //----------------------------------------------------------------------
 
-@mixin display-flex {
-    display: flex;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+@mixin display-flex($args: '') {
+    display: flex unquote($args);
+    display: -ms-flexbox unquote($args);
+    display: -webkit-flex unquote($args);
 }
 
-@mixin flexbox {
-    @include display-flex;
+@mixin flexbox($args: '') {
+    @include display-flex($args);
 }
 
-@mixin display-inline-flex {
-    display: inline-flex;
-    display: -ms-inline-flexbox;
-    display: -webkit-inline-flex;
+@mixin display-inline-flex($args: '') {
+    display: inline-flex unquote($args);
+    display: -ms-inline-flexbox unquote($args);
+    display: -webkit-inline-flex unquote($args);
 }
 
-@mixin inline-flex {
-    @include display-inline-flex;
+@mixin inline-flex($args: '') {
+    @include display-inline-flex($args);
 }
 
 @mixin flex-direction($value: row) {
