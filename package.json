@@ -1,5 +1,19 @@
 {
-	"name": "dj-scss",
-	"repository": "https://github.com/Dorfjungs/dj-scss",
-	"version": "1.0.23"
+  "name": "@dorfjungs/scss-base",
+  "version": "1.0.0",
+  "description": "SCSS basics from reset to CSS3 mixins",
+  "keywords": [ "scss", "base", "mixins", "css3", "flexbox" ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dorfjungs/dj-scss.git"
+  },
+  "author": "Davide Perozzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dorfjungs/dj-scss/issues"
+  },
+  "homepage": "https://github.com/Dorfjungs/dj-scss#readme"
 }
