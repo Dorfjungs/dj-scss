@@ -32,12 +32,12 @@
 
 @mixin responsive-height($min-height, $max-height: 0) {
     @if ($max-height > 0) {
-        @media all and (min-width: $min-height) and (max-width: $max-height - 1) {
+        @media all and (min-height: $min-height) and (max-height: $max-height - 1) {
             @content;
         }
     }
     @else {
-        @media all and (min-width: $min-height) {
+        @media all and (min-height: $min-height) {
             @content;
         }
     }
