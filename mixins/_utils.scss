@@ -1,54 +1,54 @@
 @mixin hyphenate {
-	-ms-word-break: break-all;
-    word-break: break-all;
-    word-break: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 @mixin clearfix {
-	&:after {
-	    content: ".";
-	    clear: both;
-	    display: block;
-	    visibility: hidden;
-	    height: 0px;
-	}
+  &:after {
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0px;
+  }
 }
 
 @mixin responsive-width($min-width, $max-width: 0) {
-    @if ($max-width > 0) {
-        @media all and (min-width: $min-width) and (max-width: $max-width - 1) {
-            @content;
-        }
+  @if ($max-width > 0) {
+    @media all and (min-width: $min-width) and (max-width: $max-width - 1) {
+      @content;
     }
-    @else {
-        @media all and (min-width: $min-width) {
-            @content;
-        }
+  }
+  @else {
+    @media all and (min-width: $min-width) {
+      @content;
     }
+  }
 }
 
 @mixin responsive-height($min-height, $max-height: 0) {
-    @if ($max-height > 0) {
-        @media all and (min-height: $min-height) and (max-height: $max-height - 1) {
-            @content;
-        }
+  @if ($max-height > 0) {
+    @media all and (min-height: $min-height) and (max-height: $max-height - 1) {
+      @content;
     }
-    @else {
-        @media all and (min-height: $min-height) {
-            @content;
-        }
+  }
+  @else {
+    @media all and (min-height: $min-height) {
+      @content;
     }
+  }
 }
 
 @mixin placeholder {
-	$prefixes: "::-webkit-input-", "::-moz-", ":-ms-input-", ":-moz-";
+  $prefixes: "::-webkit-input-", "::-moz-", ":-ms-input-", ":-moz-";
 
-	@each $prefix in $prefixes {
-		&#{$prefix}placeholder {
-			@content
-		}
-	}
+  @each $prefix in $prefixes {
+    &#{$prefix}placeholder {
+      @content
+    }
+  }
 }
