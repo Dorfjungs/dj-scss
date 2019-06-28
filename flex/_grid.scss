@@ -24,11 +24,11 @@ $half-gutter-width: $fg-gutter-width * .5;
   margin-right: auto;
   margin-left: auto;
 
-  &:not(.fx-box-spacing) {
+  &:not(.fg-container-fluid-space-around) {
     @include fluid-size(padding-left padding-right, $min-margin, $max-margin);
   }
 
-  &.fx-box-spacing {
+  &.fg-container-fluid-space-around {
     @include fluid-size(padding, $min-margin, $max-margin);
   }
 }
