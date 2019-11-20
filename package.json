@@ -1,6 +1,6 @@
 {
   "name": "@dorfjungs/scss-base",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "SCSS basics from reset to CSS3 mixins",
   "keywords": [ "scss", "base", "mixins", "css3", "flexbox" ],
   "scripts": {
